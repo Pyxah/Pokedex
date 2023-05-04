@@ -1,0 +1,52 @@
+<html>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/pokemon.css')}}">
+
+<body>
+    <button id="back-button"><a href="/pokedex"><strong>Retour au Pokédex Eco+</a></strong></button><br><br>
+
+  <div class="pokedex">
+    <img class="imgPokedex" src="/static/img/pokedex.png">
+    <img class="sprite" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/{{pokemon.id}}.gif" alt="">
+  </div>
+    <div class="pokemon-info">
+    <div class="infos">
+        <p><b>Nom: </b>{{ pokemon.name.fr }}</p>
+        <p><b>Type(s):</b> 
+            {% set displayed_types = [] %}
+            {% for type in pokemon.types %}
+                {% if type.name.fr %}
+                    {% set type_name = type.name.fr %}
+                    {% if type_name not in displayed_types %}
+                        <p><img class="icon" src="../static/img/type/{{type.name.en}}.png" alt="">{{ type_name }} </p>
+                        {% set _ = displayed_types.append(type_name) %}
+                    {% endif %}
+                {% endif %}
+            {% endfor %}
+        </p>
+        <p><b>Taille: </b>{{ pokemon.height }}</p>
+        <p><b>Poids: </b>{{ pokemon.weight }}</p>
+        <p><b>Genre: </b>{{ pokemon.genus.fr }}</p>
+    </div>
+    <div class="stats">
+        <p><b>Stats:</b></p>
+        <ul>
+            {% for stat in pokemon.stats %}
+                <li>- {{ stat.name }}: {{ stat.stat }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+</div>
+    <div class="description">
+        <p><b>Description: </b><i>{{ pokemon.description.fr }}</i></p>
+    </div>
+
+    <div>
+        {% if pokemon.id > 1 %}
+            <button id="prev-button"><a href="/pokemon/{{ pokemon.id - 1 }}"><strong>< Précédent</a></strong></button>
+        {% endif %}
+        {% if pokemon.id < 649 %}
+            <button id="next-button"><a href="/pokemon/{{ pokemon.id + 1 }}"><strong>Suivant ></a></strong></button>
+        {% endif %}
+    </div>
+
+</body>

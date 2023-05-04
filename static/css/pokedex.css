@@ -1,0 +1,118 @@
+* {
+    cursor: url('/static/img/poke-close.png'), auto;
+  }
+
+.pokemon-col {
+    width: calc(22% - 20px);
+    margin: 10px;
+    padding: 20px;
+    background-color: white;
+    border: 2px solid #f1f1f1;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease-in-out;
+    overflow: hidden;
+    text-align: center;
+}
+
+.zoomable:hover {
+    transform: scale(1.4); /* equivalent zoom de 120% */
+    transition: transform 0.3s ease-in-out;
+}
+
+
+@font-face {
+    font-family: 'Pokemon Classic';
+    src: url('/static/fonts/pokemon-classic.ttf') format('truetype');
+}
+
+.pokemon-name {
+    font-family: 'Pokemon Classic', sans-serif;
+}
+
+@font-face {
+    font-family: 'Pokemon Solid';
+    src: url('/static/fonts/pokemon-solid.ttf');
+  }
+  
+h1 {
+    font-family: 'Pokemon Solid', sans-serif;
+    text-align: center;
+    font-size: 500%;
+    margin-bottom: 0px;
+  }
+  
+h3 {
+    font-family: 'Pokemon Solid', sans-serif;
+    text-align: center;
+    margin: 0px;
+}
+
+.pokemon-row {
+    display: flex; 
+    justify-content: center; 
+    flex-wrap: wrap
+}
+
+img {
+    width: 100px;
+    height: 100px;
+    transition: all 0.3s ease-in-out;
+    cursor: url('/static/img/poke-open.png'), auto;
+    padding-bottom: 10px;
+    transform: scale(1.2)
+}
+
+/* préfixes de navigateur pour WebKit */
+::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background-color: grey;
+    border-radius: 5px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    background-color: black;
+  }
+  
+  /* préfixes de navigateur pour Firefox */
+* {
+    scrollbar-width:thin;
+    scrollbar-color: grey black;
+}
+
+*::-moz-scrollbar-thumb {
+    background-color: grey;
+    border-radius: 5px;
+}
+
+*::-moz-scrollbar-track {
+    background-color: black;
+}
+
+/* Style de la barre de recherche */
+.input-search {
+    display: block;
+    width: 50%;
+    max-width: 500px;
+    margin: auto; 
+    margin-bottom: 50px;
+    padding: 10px;
+    background-color: white;
+    border: 2px solid #f1f1f1;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease-in-out;
+    font-family: 'Pokemon Classic', sans-serif;
+    font-size: 16px;
+    text-align: center;
+    cursor: text;
+  }
+  
+  .input-search:focus {
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+    outline: none;
+  }

@@ -1,0 +1,42 @@
+<html>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/pokedex.css')}}">
+    <head>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    </head>
+    <body>
+        <h1>POKEDEX ECO+</h1>
+        <h3>Recherchez les tous</h3><br>
+        <div class="search-container">
+            <input class="input-search" type="search" id="search-bar" placeholder="Rechercher un pokémon"/>
+        </div>
+        <div class="pokemon-row">
+            {% for pokemon in pokemons %}
+                <p class="pokemon-col pokemon-item" data-id="{{ pokemon.id }}" data-name="{{ pokemon.name.fr }}">
+                <img class="sprite zoomable" data-id="{{ pokemon.id }}" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/{{pokemon.id}}.png" alt="{{ pokemon.name.fr }} sprite"><br>
+                <span class="pokemon-name">{{ pokemon.id }}. {{ pokemon.name.fr }}</span></p>
+            {% endfor %}
+        </div>
+
+        <script>
+            $('.sprite').click(function() {
+                var id = $(this).data('id');
+                window.location.href = '/pokemon/' + id;
+            });
+
+            $(document).ready(function() {
+                $('#search-bar').on('input', function() {
+                    var searchValue = $(this).val().toLowerCase();
+                    $('.pokemon-item').each(function() {
+                        var id = $(this).data('id');
+                        var name = $(this).data('name').toLowerCase();
+                        if (name.indexOf(searchValue) !== -1 || id.toString().indexOf(searchValue) !== -1) {
+                            $(this).show();
+                        } else {
+                            $(this).hide();
+                        }
+                    });
+                });
+            });
+        </script>
+    </body>
+</html>

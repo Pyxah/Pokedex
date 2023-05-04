@@ -1,0 +1,153 @@
+/* Utilisation de la police d'écriture "Pokemon-classic" */
+@font-face {
+    font-family: 'Pokemon Classic';
+    src: url('/static/fonts/pokemon-classic.ttf') format('truetype');
+  }
+  
+  body {
+    font-family: 'Pokemon Classic', sans-serif;
+  }
+  
+  /* Style pour l'image */
+  .sprite {
+    /*display: block;
+    margin: 0 auto;
+    max-width: 200px;
+    height: auto;
+    padding-bottom: 20px;*/
+    
+    /* essai superposition */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+    height: 80px;
+    margin-top: 4px;
+  }
+
+  .icon {
+    max-width: 20px;
+    margin-right: 10px;
+  }
+  
+/* Style pour les informations du Pokemon */
+.pokemon-info {
+    margin: 20px;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+  }
+  
+  .pokemon-info div {
+    width: 45%;
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .pokemon-info p {
+    margin: 5px;
+  }
+  
+  /* Style pour les stats */
+  .pokemon-info ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  /* Style pour la descriptio, */
+  .description {
+    padding-top: 0px;
+    padding-left: 150px;
+    padding-right: 150px;
+    text-align: center;
+  }
+
+  /* Style pour le bouton */
+  #back-button {
+    font-family: 'Pokemon Classic', sans-serif;
+    font-size: 10px;
+    background-color: white;
+    border: 2px solid #f1f1f1;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease-in-out;
+    padding: 15px 10px;
+    margin-left: 20px;
+    margin-top: 20px;
+    cursor: url('/static/img/poke-close.png'), auto;
+  }
+  
+  #back-button:hover {
+    background-color: #f1f1f1;
+    cursor: url('/static/img/poke-close.png'), auto;
+  }
+  
+  a:visited {
+    color: black;
+  }
+
+  /* Style pour les boutons de navigation */
+  #prev-button,
+  #next-button {
+    position: fixed;
+    top: 50%;
+    transform: translateY(-50%);
+    font-family: 'Pokemon Classic', sans-serif;
+    color: black;
+    background-color: white;
+    border: 2px solid #f1f1f1;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease-in-out;
+    padding: 15px 10px;
+    margin-left: 20px;
+    margin-top: 20px;
+    cursor: url('/static/img/poke-open.png'), auto;
+  }
+
+  a:visited {
+    color: black;
+  }
+  
+  #prev-button {
+    left: 10;
+  }
+  
+  #next-button {
+    right: 10;
+  }
+  
+  #prev-button:hover {
+    background-color: #f1f1f1;
+    cursor: url('/static/img/poke-open.png'), auto;
+  }
+
+  #next-button:hover {
+    background-color: #f1f1f1;
+  }
+
+  a {
+    text-decoration: none;
+  }
+
+  #back-button:hover a {
+    cursor: url('/static/img/poke-close.png'), auto;
+  }
+
+  #prev-button:hover a, 
+  #next-button:hover a{
+    cursor: url('/static/img/poke-open.png'), auto;
+  }
+
+  .pokedex {
+    position: relative;
+  }
+  
+  .imgPokedex {
+    width: 20%;
+    height: auto;
+    padding-left: 41%;
+  }
+  
