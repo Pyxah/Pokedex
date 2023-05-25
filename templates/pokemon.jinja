@@ -31,7 +31,26 @@
         <p><b>Stats:</b></p>
         <ul>
             {% for stat in pokemon.stats %}
-                <li>- {{ stat.name }}: {{ stat.stat }}</li>
+                <li>
+                    {% if stat.name == "hp"%}
+                        <p>- HP : {{stat.stat}}</p>
+                    {% endif %}
+                    {% if stat.name == "attack"%}
+                        <p>- Attaque : {{stat.stat}}</p>
+                    {% endif %}
+                    {% if stat.name == "defense"%}
+                        <p>- Défense : {{stat.stat}}</p>
+                    {% endif %}
+                    {% if stat.name == "special-attack"%}
+                        <p>- Attaque Spéciale : {{stat.stat}}</p>
+                    {% endif %}
+                    {% if stat.name == "special-defense"%}
+                        <p>- Défense Spéciale : {{stat.stat}}</p>
+                    {% endif %}
+                    {% if stat.name == "speed"%}
+                        <p>- Vitesse : {{stat.stat}}</p>
+                    {% endif %}
+                </li>
             {% endfor %}
         </ul>
     </div>
@@ -39,7 +58,6 @@
     <div class="description">
         <p><b>Description: </b><i>{{ pokemon.description.fr }}</i></p>
     </div>
-
     <div>
         {% if pokemon.id > 1 %}
             <button id="prev-button"><a href="/pokemon/{{ pokemon.id - 1 }}"><strong>< Précédent</a></strong></button>
@@ -48,5 +66,4 @@
             <button id="next-button"><a href="/pokemon/{{ pokemon.id + 1 }}"><strong>Suivant ></a></strong></button>
         {% endif %}
     </div>
-
 </body>
